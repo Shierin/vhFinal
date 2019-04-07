@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>usr_login</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <style>
+      body{
+        background-image: url("images/music_speaks-wallpaper-1366x768.jpg");
+        margin:0;
+        position: fixed; 
+        overflow-y: scroll;
+        width: 100%;
+      }
+      @keyframes vbrt {
+          from{left:-2px;}
+          to{left:2px;}
+      }
+
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function vbrt(){
+        document.getElementById('pwd').style.animation= "vbrt 0.1s 5";
+        document.getElementById('pswd').style.borderColor="#FF1001";
+        document.getElementById('pswd').style.borderWidth="2px";
+
+    }
+
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" style="background-color:#343434;border-bottom-width:3px;border-bottom-color:#ffa500">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand" style="color:#ffa500; font-size: 200%;">OMEGA</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="well well-lg" style="height: 100%; opacity: 0.7;">
+      <span style="float: left;"><i style="font-size: 80px" class="fas fa-user-circle"></i>  Hi User...</span> 
+      <span style="float: right; font-size: 20px">Your Current Balance : 9999</span>
+      <div class="container">
+        <form>
+          <div class="form-group" style="margin-top: 10%; margin-left: 40%">
+            <div class="row">
+              <div class="col-xs-4">
+                <label for="transferTo">Transfer To :</label>
+                <input class="form-control" id="transferTo" type="text">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 5%;">
+              <div class="col-xs-4">
+                <label for="transferTo">Amount : (omega)</label>
+                <input class="form-control" id="transferTo" type="text">
+              </div>
+            </div>
+            <div class="row container" style="margin-top: 5%; margin-left: 8%">
+              <button type="button" class="btn btn-primary">Transfer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      @copyright OMEGA
+    </div>
+  
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>usr_login</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"></link>
+    <style>
+      body{
+        background-image: url("images/music_speaks-wallpaper-1366x768.jpg");
+        margin:0;
+      }
+      @keyframes vbrt {
+          from{left:-2px;}
+          to{left:2px;}
+      }
+    </style>
+    <script>
+      function vbrt(){
+        document.getElementById('pwd').style.animation= "vbrt 0.1s 5";
+        document.getElementById('pswd').style.borderColor="#FF1001";
+        document.getElementById('pswd').style.borderWidth="2px";
+
+    }
+
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" style="background-color:#343434;border-bottom-width:3px;border-bottom-color:#ffa500">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand" style="color:#ffa500; font-size: 200%;">OMEGA</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="panel-group" id="accordian">
+        <div class="panel panel-default" style="background-color:#e5e5e5;opacity:0.7;">
+          <div class="panel-heading"  style="background-color:#ffa500;padding:0.5%;">
+            <h4 class="title">
+              <center><a href="#clpse1" data-toggle="collapse" data-parent="#accordian"  style="color:#fff;text-decoration:none;">Login</a></center>
+            </h4>
+          </div>
+          <div id="clpse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="well well-lg center-block" style="width:60%;background-color:#ffa500;padding:0;">
+                <form>
+                  <div class="form-group row">
+                    <center><i class="fa fa-user-o fa-3x" aria-hidden="true" style="margin-top:1%;color:#fff"></i></center>
+                    <div style="width:100%;">
+                      <div class="col-xs-7" style="margin-top:5%;margin-left:20%;width:60%;">
+                        <input class="form-control" type="text" placeholder="User Name" style="border-radius:20px;">
+                      </div>
+
+                      <div id="pwd" class="col-xs-7" style="margin-top:5%;margin-left:20%;width:60%;" onKeyPress="vbrt()">
+                        <input id="pswd" class="form-control" type="password" placeholder="Password" style="border-radius:20px;">
+                      </div>
+                      <center>
+                        <button type="button" class="btn btn-default" style="border:1px solid white;color:#343434;background-color:#ffa500;margin-top:4%;border-radius:20px;width:30%;">Login</button>
+                      </center>
+                      <center style="padding:5px;"><code style="background-color:#ffa500;"><a href="#">Forgot Password??</a></code></center>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+        <div class="panel panel-default" style="background-color:#e5e5e5;opacity:0.7;">
+          <div class="panel-heading"  style="background-color:#ffa500;padding:0.5%;">
+            <h4 class="title">
+              <center><a href="#clpse2" data-toggle="collapse" data-parent="#accordian" style="color:#fff;text-decoration:none;">Sign  up</a></center>
+            </h4>
+          </div>
+          <div id="clpse2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="well well-lg center-block" style="width:60%;background-color:#ffa500;padding:0;">
+                <form>
+                  <div style="width:100%;">
+                    <div class="col-xs-5" style="margin-top:5%;margin-left:10%;width:39%;">
+                      <input class="form-control" type="text" placeholder="First Name" style="border-radius:20px;">
+                    </div>
+                    <div class="col-xs-5" style="margin-top:5%;margin-left:2%;width:39%;">
+                      <input class="form-control" type="text" placeholder="Last Name" style="border-radius:20px;">
+                    </div>
+
+                    <div class="col-xs-5" style="margin-top:6%;margin-left:10%;width:80%;">
+                      <input class="form-control" type="text" placeholder="Email" style="border-radius:20px;">
+                    </div>
+                    <div class="col-xs-5" style="margin-top:6%;margin-left:10%;width:80%;">
+                      <input class="form-control" type="password" placeholder="New Password" style="border-radius:20px;">
+                    </div>
+                    <center>
+                      <button type="submit" class="btn btn-default" style="border:1px solid white;color:#343434;background-color:#ffa500;border-radius:20px;margin:5%;width:30%">Signup</button>
+                    </center>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
+
+<?php 
+  if($_POST["SUBMIT"]=="save")
+  {
+    $fname=$_POST["fname"];
+    $lname=$_POST["lname"];
+    $dbc=mysqli_connect('localhost','root','','omegadb');
+    
+    if (mysqli_connect_errno())
+      {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      }
+    else
+       {    
+      $q="insert into users (fname,lname) values('".$fname."','".$lname."')";
+      $r=mysqli_query($dbc,$q);
+       }
+  }
+
+?>
